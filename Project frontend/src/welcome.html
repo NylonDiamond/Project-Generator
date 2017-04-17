@@ -1,0 +1,94 @@
+<template>
+  <br/><br/>
+  <div class="container">
+    <div class="row">
+      <h1 class="heading1">${heading}</h1>
+      <hr class="hr-thick"/>
+      <section class="au-animate">
+        <div style="text-align: center" class="col-xs-12">
+          <div>
+            <span class="sexy_line"></span>
+          </div>
+          <br>
+          <br>
+          <br>
+          <form class="element-animation" role="form">
+            <input class='input-lg' type="text" value="" value.bind="term" autofocus="autofocus" required>
+              <span id="schbtn">
+                <button type="button" click.delegate="searchProject()" class="btn btn-lg">
+                  <i class="fi-magnifying-glass"></i>
+                </button>
+              </span>
+            </input>
+            <p>
+              ${this.term}
+            </p>
+            <div class="xx">
+              <button class="btn btn-lg drpbtn" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                Tag Lookup
+              </button>
+              <div class="row">
+                <div class="collapse top-to-bottom-single" id="collapseExample">
+                  <!-- <div class="search-tag-div"> -->
+                  <button data-target="#collapseExample" data-toggle="collapse" class="col-xs-4" click.delegate="getProjectByTagId(tag)" id="tag-search" repeat.for="tag of tags">
+                    ${tag.title}
+                  </button>
+                  <!-- </div> -->
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-12">
+                <div class="die-animation">
+                  <i click.delegate="getRandomProject()" class="fi-die-six drpbtn"></i>
+                </div>
+              </div>
+            </div>
+          </form>
+          <br/>
+        </div>
+      </section>
+    </div>
+    <div class="row">
+      <div class="main-element-animation col-xs-12 top-to-bottom-single" style="text-align: center;" if.bind="projects.length < 3" repeat.for="project of projects">
+        <h1>${project.number}</h1>
+        <hr class="hr">
+        <h1>${project.title}</h1>
+        <h3 style="text-align: center">
+          ${project.description}</h3>
+        <button class="btn btn-default tag-buttons" repeat.for="tag of project.tags">${tag.title}</button>
+        <hr class="hr">
+      </div>
+      <div if.bind="projects.length >= 3" class="col-xs-4 " repeat.for="project of projects">
+        <div class="main-element-animation top-to-bottom classWithPad">
+          <h1>${project.number}</h1>
+          <hr class="hr">
+          <h1 >${project.title}</h1>
+          <h3 style="text-align: left" class="descripiton">
+            ${project.description}</h3>
+          <span>
+            <h4>
+              <button class="btn btn-xs tag-buttons" repeat.for="tag of project.tags">${tag.title}</button>
+            </h4>
+          </span>
+          <hr class="hr">
+        </div>
+      </div>
+    </div>
+  </div>
+  <ul>
+    <li repeat.for="tab of tabs">
+      <a href="${'#' + $parent.id + '-' + $index}">${tab.title}</a>
+    </li>
+  </ul>
+  <div repeat.for="tab of tabs" id="${$parent.id + '-' + $index}">
+    <p>${tab.text}</p>
+  </div>
+  <footer>
+    <p style="text-align: right; margin-top: 32px;">Created by: Jesse Skelton</p>
+  </footer>
+</template>
+footer>
+<p style="text-align: right; margin-top: 32px;">Created by: Jesse Skelton</p>
+</footer>
+</template>

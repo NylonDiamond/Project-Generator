@@ -1,0 +1,61 @@
+<template>
+  <br><br>
+  <div class="container">
+    <H1 class="heading1">
+      Create Project
+    </H1>
+    <hr class="hr-thick"/>
+    <div class="row">
+      <div style="text-align: center" class="col-xs-6 col-xs-offset-3 ">
+        <form role="form" class="top-to-bottom-form element-animation">
+          <div class="form-group">
+            <label for="title">
+              <h2>Project Title</h2>
+            </label>
+            <input type="text" value.bind="project.title" class="form-control" id="title" placeholder="Title" value.bind="title" required/>
+          </div>
+          <p>
+            ${project.title}
+          </p>
+          <div class="form-group">
+            <label for="description">
+              <h2>Project Description</h2>
+            </label>
+            <textarea type="text" id="styled" value.bind="project.description" class="form-control textarea" id="description" placeholder="Description" value.bind="description" rows="15"></textarea>
+          </div>
+          <p >
+            ${project.description}
+          </p>
+          <button class="btn btn-default tag-buttons" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+            Add tags
+          </button>
+
+          <div class="collapse" id="collapseExample">
+            <div class="card card-block">
+              <button click.delegate="addTag(tag)" class=" btn btn-default tag-buttons" repeat.for="tag of tags">${tag.title}<br/></button>
+            </div>
+          </div>
+
+          <div id="tagTitle">
+            <label>
+              <h2>Chosen Tags:</h2>
+            </label>
+            <div id="innerTagTitle" repeat.for="selectedTag of selectedTagTitlesArray" class="btn btn-default tag-buttons ">
+              <span>${selectedTag.title}</span>
+              <a click.delegate="removeTag(selectedTag)">
+                <i class="remove glyphicon glyphicon-remove-sign glyphicon-white"></i>
+              </a>
+            </div>
+          </div>
+          <div class="button-bar">
+            <hr class="hr"/>
+            <button type="submit" class="btn btn-lg" click.delegate="postData()">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <p style="text-align: right;  margin-top: 32px;">Created by: Jesse Skelton</p>
+  </footer>
+</template>
