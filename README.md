@@ -1,5 +1,7 @@
 # Project Generator
 
+I wrote this in Aurelia about 3 years ago :D. Good times.
+
 ## Running The applications Frontend (Aurelia)
 
 To run the app, follow these steps.
